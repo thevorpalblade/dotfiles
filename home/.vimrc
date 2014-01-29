@@ -39,7 +39,7 @@ filetype plugin indent on
 "  airline setup
 set guifont=Teminess\ Powerline\ 10
 set laststatus=2
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 
@@ -68,9 +68,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-"colorscheme delek
+colorscheme delek
 "colorscheme base16-default
-colorscheme molokai
+"colorscheme molokai
 let g:molokai_original = 1
 let g:rehash256 = 1
 set background=dark

@@ -15,12 +15,12 @@ URxvt*shading:25
 
 #URxvt*letterSpace: -3
 #URxvt*geometry: 84×24
-#URxvt*font: xft:terminus:pixelsize=10
+URxvt*font: xft:terminus:pixelsize=10
 #URxvt.font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
 #URxvt.font: xft:DejaVu Sans Mono:pixelsize=12
 #URxvt.font: -*-proggyclean-*-*-*-*-*-*-*-*-*-*-*-*
 #URxvt.font:  6x13
-URxvt.font: xft:Terminess Powerline:style=Regular:pixelsize=10
+#URxvt.font: xft:Terminess Powerline:style=Regular:pixelsize=10
 ## change default colors
 URxvt*background: #000000
 URxvt*foreground: #A8A8A8
