@@ -1,91 +1,51 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# Some handy ssh aliases
+alias knuth='ssh -Y mlawson@knuth.cs.hmc.edu'
+alias darthvader='ssh matthew@darthvader.st.hmc.edu'
+alias freyja='ssh -Y mlawson@freyja.st.hmc.edu'
+alias imura='ssh root@imura.st.hmc.edu'
+alias odin='ssh -Y mlawson@odin.ac.hmc.edu'
+alias oldin='ssh -Y mlawson@oldin.ac.hmc.edu'
+alias hipp='ssh -Y mlawson@hipparchus.physics.hmc.edu'
+alias vulcan='ssh -Y mlawson@vulcan.ca.sandia.gov'
+alias farragut='ssh -Y matthew@farragut'
+alias k7='ssh -p 24 root@k7'
+alias stargazer='ssh -Y matthew@stargazer'
+alias born='ssh -Y lawson@born.physics.ucdavis.edu'
+alias physics='ssh -Y lawson@ms.physics.ucdavis.edu'
+alias osa='ssh thevorpalblade@opensourceadventures.com'
+alias york='ssh -Y matthew@york'
+alias yamato='ssh -Y matthew@yamato'
+alias enterprise="ssh -Y matthew@enterprise"
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+# make upgrading easier
+alias dist-upgrade='sudo pacman -Syu'
+alias install='sudo pacman -S'
+alias search='pacman -Ss'
 
+# handy
+#alias gnuplot='rlwrap gnuplot'
+alias bc='orpie'
+alias mplayerhd='/home/matthew/mplayer-vdpau-3263604/mplayer-vdpau/mplayer -vo vdpau -vc ffh264vdpau'
 
-#just in case
-source /etc/profile
-
-# don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
-# ... and ignore same sucessive entries.
-export HISTCONTROL=ignoreboth
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-xterm-color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    ;;
-*)
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    ;;
-esac
-
-# Comment in the above and uncomment this below for a color prompt
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-    ;;
-*)
-    ;;
-esac
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    alias dir='ls --color=auto --format=vertical'
-    alias vdir='ls --color=auto --format=long'
-fi
-
-# some more ls aliases
-alias ll='ls -lh'
-alias la='ls -Alh'
-alias l='ls -CF'
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
-PATH=$PATH:/home/matthew/bin:/sbin:/usr/sbin
-MPD_HOST=enterprise
-BROWSER=firefox
-EDITOR=vim
-
-PROMPT_COMMAND='PS1="\[\033[0;33m\][\!]\`if [[ \$? = "0" ]]; then echo "\\[\\033[32m\\]"; else echo "\\[\\033[31m\\]"; fi\`[\u.\h: \`if [[ `pwd|wc -c|tr -d " "` > 18 ]]; then echo "\\W"; else echo "\\w"; fi\`]\$\[\033[0m\] "; echo -ne "\033]0;`hostname -s`:`pwd`\007"'
+alias mps='mpc playlist -f " [%position%) %artist% - %title%]" | grep -i'
+alias playlist='mpc playlist -f " [%position%) %artist% - %title%] "'
+alias mpf='echo /mnt/data/Music/`mpc --format %file% | head -1`'
 
 
-#for BOINC:
-#xhost local:boinc
+alias hbc='HandBrakeCLI -e x264  -q 20.0 -a 1,1 -E ac3 -B 320 -R Auto -f mkv --detelecine --decomb --loose-anamorphic -m -x b-adapt=2:rc-lookahead=50:ref=5:b-pyramid=1:me=umh:subme=8:no-fast-pskip=1:bframes=5:direct=auto:psy-rd=1,0.2:deblock=1,1'
 
+
+alias naut="nautilus --no-desktop &"
+alias pylab="ipython --pylab"
+
+#wake on lan commands
+alias wake_enterprise="wol -i enterprise bc:5f:f4:37:f3:51"
+alias wake_york="wol -i york 00:1d:60:be:fc:62"
+alias wake_farragut="wol -i farragut 90:fb:a6:3d:02:de"
+
+#test internet
+alias 8="ping 8.8.8.8"
+
+#transmission on farragut
+alias trc='transmission-remote-cli -c enterprise:9091'
 

@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo service smbd stop
+sudo ssh -L 139:dragon.st.hmc.edu:139 mlawson@knuth.cs.hmc.edu
