@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Layout
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Grid
+import XMonad.Layout.Accordion
 import XMonad.Layout.Circle
 import XMonad.Layout.LayoutHints
 import XMonad.Hooks.DynamicLog
@@ -31,7 +32,7 @@ myManageHook = composeAll . concat $
 	]
          
 -- myLayoutHook = smartBorders (avoidStruts  $  layoutHook defaultConfig)
-myLayoutHook = smartBorders (avoidStruts (  tiled ||| three ||| multi) ||| Full ) 
+myLayoutHook = smartBorders (avoidStruts (  tiled ||| three ||| multi ) ||| Full ) 
 
     where
         tiled   = Tall nmaster delta ratio

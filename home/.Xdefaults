@@ -9,7 +9,7 @@ URxvt*internalBorder:0
 ## teh transparency stuff
 URxvt*inheritPixmap: true
 #URxvt*tintColor: white
-URxvt*shading:25
+URxvt*shading:10
 
 ## geometry and font
 
