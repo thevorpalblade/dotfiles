@@ -1,4 +1,9 @@
 import XMonad
+import XMonad.Layout
+import XMonad.Layout.ThreeColumns
+import XMonad.Layout.Grid
+import XMonad.Layout.Circle
+import XMonad.Layout.LayoutHints
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
@@ -9,6 +14,7 @@ import XMonad.Util.EZConfig
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders
+import XMonad.Layout.MultiColumns
 
 
 normalBorderColor, focusedBorderColor :: String
@@ -24,14 +30,28 @@ myManageHook = composeAll . concat $
 	, [isFullscreen --> doFullFloat]
 	]
          
+-- myLayoutHook = smartBorders (avoidStruts  $  layoutHook defaultConfig)
+myLayoutHook = smartBorders (avoidStruts (  tiled ||| three ||| multi) ||| Full ) 
 
+    where
+        tiled   = Tall nmaster delta ratio
+        multi   =  multiCol [1] 2 0.01 0.5
+        three   = ThreeCol nmaster delta (1/3)
+        -- The default number of windows in the master pane
+        nmaster = 1
+        -- Default proportion of screen occupied by master pane
+        ratio   = (1/2)
+        -- Percent of screen to increment by when resizing panes
+        delta   = (3/100)
+ 
 main = do
     xmproc <- spawnPipe "/home/matthew/.cabal/bin/xmobar /home/matthew/.xmobarrc" 
     xmonad $ defaultConfig
-        { workspaces = ["1:web","2:music","3:rips/encodes","4:video","5:coding","6:administration","7","8","9","0"]
+        { workspaces = ["1:web","2:music","3:rips/encodes","4:video",
+                        "5:coding","6:administration","7","8","9","0"]
 	, terminal           = "urxvtc"
 	, manageHook = manageDocks <+> manageHook defaultConfig
-        , layoutHook = smartBorders (avoidStruts  $  layoutHook defaultConfig)
+        , layoutHook = myLayoutHook
 	, logHook = dynamicLogWithPP $ xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 50
