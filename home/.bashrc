@@ -77,10 +77,10 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-PATH=$PATH:/home/matthew/bin:/sbin:/usr/sbin
-MPD_HOST=enterprise
-BROWSER=firefox
-EDITOR=vim
+export PATH=$PATH:/home/matthew/bin:/sbin:/usr/sbin
+export PYTHONPATH=$PYTHONPATH:/home/matthew/curro/code:/home/matthew/python_libs
+export BROWSER=firefox
+export EDITOR=vim
 
 PROMPT_COMMAND='PS1="\[\033[0;33m\][\!]\`if [[ \$? = "0" ]]; then echo "\\[\\033[32m\\]"; else echo "\\[\\033[31m\\]"; fi\`[\u.\h: \`if [[ `pwd|wc -c|tr -d " "` > 18 ]]; then echo "\\W"; else echo "\\w"; fi\`]\$\[\033[0m\] "; echo -ne "\033]0;`hostname -s`:`pwd`\007"'
 
@@ -88,4 +88,32 @@ PROMPT_COMMAND='PS1="\[\033[0;33m\][\!]\`if [[ \$? = "0" ]]; then echo "\\[\\033
 #for BOINC:
 #xhost local:boinc
 
+#bashmarks 
 
+source ~/.local/bin/bashmarks.sh
+
+function countdown(){
+   date1=$((`date +%s` + $1*60)); 
+   clear
+   echo -e $2
+   while [ "$date1" -ne `date +%s` ]; do 
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+     sleep .1
+   done
+}
+function stopwatch(){
+  date1=`date +%s`; 
+   while true; do 
+    echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"; 
+    sleep 0.1
+   done
+}
+
+function tt(){
+    countdown 16 "Talk"
+    countdown 4 "Q&A"
+    clear
+    echo "done"
+    sleep 10m
+
+}

@@ -13,9 +13,11 @@ alias stargazer='ssh -Y matthew@stargazer'
 alias born='ssh -Y lawson@born.physics.ucdavis.edu'
 alias physics='ssh -Y lawson@ms.physics.ucdavis.edu'
 alias osa='ssh thevorpalblade@opensourceadventures.com'
-alias york='ssh -Y matthew@york'
-alias yamato='ssh -Y matthew@yamato'
-alias enterprise="ssh -Y matthew@enterprise"
+alias york='ssh -Y -p 28 matthew@enterprise.drunkensailor.org'
+alias yamato='ssh -Y -p 30 matthew@enterprise.drunkensailor.org'
+alias enterprise="ssh -Y -p 26 matthew@enterprise.drunkensailor.org"
+alias pines='ssh currolab@192.168.11.9'
+
 
 # make upgrading easier
 alias dist-upgrade='sudo pacman -Syu'
@@ -36,7 +38,7 @@ alias hbc='HandBrakeCLI -e x264  -q 20.0 -a 1,1 -E ac3 -B 320 -R Auto -f mkv --d
 
 
 alias naut="nautilus --no-desktop &"
-alias pylab="ipython --pylab"
+alias pylab="ipython --pylab=qt"
 
 #wake on lan commands
 alias wake_enterprise="wol -i enterprise bc:5f:f4:37:f3:51"
@@ -49,3 +51,8 @@ alias 8="ping 8.8.8.8"
 #transmission on farragut
 alias trc='transmission-remote-cli -c enterprise:9091'
 
+# ssh-add only on first ssh use:
+ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
+
+
+alias steam="env LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' /usr/bin/steam"

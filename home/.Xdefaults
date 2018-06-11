@@ -13,18 +13,40 @@ URxvt*shading:10
 
 ## geometry and font
 
-#URxvt*letterSpace: -3
+#URxvt*letterSpace: -4
 #URxvt*geometry: 84×24
 #URxvt*font: xft:terminus:pixelsize=10
 #URxvt.font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
 #URxvt.font: xft:DejaVu Sans Mono:pixelsize=12
 #URxvt.font: -*-proggyclean-*-*-*-*-*-*-*-*-*-*-*-*
-URxvt.font:  6x13
 #URxvt.font: xft:Terminess Powerline:style=Regular:pixelsize=10
+URxvt*font: 6x13,
+            xft:Kochi Gothic:antialias=false:size=26
+
+
+! -----------------------------
+! XFT SETTINGS
+! -----------------------------
+
+Xft.antialias:  true
+Xft.autohint:   false
+#Xft.dpi:        157
+Xft.dpi:         96
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+Xft.lcdfilter:  lcddefault
+Xft.rgba:       rgb
+
+!#URxvt.font: xft:FiraCode Nerd Font Mono:regular:pixelsize=16:antialias=true:hinting=true,xft:Symbola
+!#URxvt.boldFont: xft:FiraCode Nerd Font Mono:bold:pixelsize=16:antialias=true:hinting=true,xft:Symbola
+!#URxvt.italicFont: xft:FiraCode Nerd Font Mono:italic:pixelsize=16:antialias=true:hinting=true,xft:Symbola
+!#URxvt.boldItalicFont: xft:FiraCode Nerd Font Mono:bold:italic:pixelsize=16:antialias=true:hinting=true,xft:Symbola
+
+
 ## change default colors
 URxvt*background: #000000
 URxvt*foreground: #A8A8A8
-#URxvt*foreground: #C0C0C0
+!#URxvt*foreground: #C0C0C0
 URxvt*color0: #000000
 URxvt*color1: #A80000
 URxvt*color2: #00A800

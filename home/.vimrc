@@ -30,6 +30,15 @@ Bundle 'davidhalter/jedi-vim'
 "Molokai
 Bundle 'tomasr/molokai'
 
+"syntastic
+Bundle 'scrooloose/syntastic'
+
+"vim-javascript
+Bundle 'pangloss/vim-javascript'
+
+"vim-sensible
+Bundle 'tpope/vim-sensible'
+
 filetype plugin indent on
 
 " The rest of your config follows here

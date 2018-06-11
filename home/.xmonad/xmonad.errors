@@ -1,0 +1,31 @@
+
+xmonad.hs:28:5: warning: [-Wtabs]
+    Tab character found here, and in 14 further locations.
+    Please use spaces instead.
+   |
+28 |         [ [className =? "gimp"      --> doFloat]
+   |     ^^^^
+
+xmonad.hs:67:19: warning: [-Wdeprecations]
+    In the use of ‘defaultConfig’
+    (imported from XMonad, but defined in XMonad.Config):
+    Deprecated: "Use def (from Data.Default, and re-exported by XMonad and XMonad.Config) instead."
+   |
+67 |     xmonad $ ewmh defaultConfig
+   |                   ^^^^^^^^^^^^^
+
+xmonad.hs:72:51: warning: [-Wdeprecations]
+    In the use of ‘defaultConfig’
+    (imported from XMonad, but defined in XMonad.Config):
+    Deprecated: "Use def (from Data.Default, and re-exported by XMonad and XMonad.Config) instead."
+   |
+72 |         , manageHook = manageDocks <+> manageHook defaultConfig
+   |                                                   ^^^^^^^^^^^^^
+
+xmonad.hs:73:60: warning: [-Wdeprecations]
+    In the use of ‘defaultConfig’
+    (imported from XMonad, but defined in XMonad.Config):
+    Deprecated: "Use def (from Data.Default, and re-exported by XMonad and XMonad.Config) instead."
+   |
+73 |     , handleEventHook = docksEventHook <+> handleEventHook defaultConfig
+   |                                                            ^^^^^^^^^^^^^
