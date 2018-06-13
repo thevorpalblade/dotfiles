@@ -1,2 +1,3 @@
 .config/termite
 .ssh
+.ipython/profile_default
